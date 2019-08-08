@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">   
+   <div class="container" > 
+    <a class="navbar-brand">
+      <img src="../assets/img/logo.JPG" alt="Logo" style="width:80px;">
+    </a> 
+    <ul class="navbar-nav" *ngIf = "isAuthorized">
+      <li class="nav-item" >
+        <a class="nav-link" href="#" [routerLink]="['home']" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['setting']" routerLinkActive="active">Settings</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  
+<router-outlet></router-outlet>
