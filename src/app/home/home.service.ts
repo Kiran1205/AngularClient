@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class LoginService extends BaseHttpService{
+export class HomeService extends BaseHttpService{
 
     constructor(private httpClient : HttpClient){
         super(httpClient);
-        this.baseRoute ='token'
+        this.baseRoute ='user'
     }
 
-    login(data : any)    {
-            return this.post('',data,this.COMMON_JSON_HEADER_REQUEST);
+    getUserDetails(id : number)    {
+            return this.get(`${id}`,this.COMMON_JSON_HEADER_REQUEST);
     }
 }

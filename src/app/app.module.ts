@@ -11,6 +11,22 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { HttpClientModule,HttpRequest,HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthService } from './auth.service';
 import { LoginService } from './login/login.service';
+import {JwtModule} from '@auth0/angular-jwt';
+import { TokenInterceptor } from './TokenInterceptor';
+import { HomeService } from './home/home.service';
+
+
+export function JwtoptionsFactory(storeage) {
+  return {
+    tokenGetter:() => {
+      return localStorage.get('token');
+    }
+  }
+} 
+
+export function tokenGetter(){
+  return localStorage.get('token');
+}
 
 @NgModule({
   declarations: [
@@ -26,9 +42,20 @@ import { LoginService } from './login/login.service';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+   JwtModule.forRoot({
+      config:{
+        tokenGetter :tokenGetter
+      }
+    }) 
   ],
-  providers: [AuthService,LoginService],
+  providers: [AuthService,LoginService,HomeService,
+    {
+     provide:HTTP_INTERCEPTORS,
+     useClass:TokenInterceptor,
+     multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

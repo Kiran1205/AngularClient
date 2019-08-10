@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
      if (this.authService.isAuthenticated()) {      
       this.router.navigate(['home']);
-    }
-    debugger;
+    }  
 
     this.loginForm = this.builder.group({
       userName :['',Validators.required],
@@ -43,10 +42,19 @@ export class LoginComponent implements OnInit {
       this.errorMessage ='';
 
       this.loginService.login(this.loginForm.value).subscribe((result : any ) =>{
-        this.errorMessage ="came back";
-          
+       
+        this.authService.setToken(result.token);
+        localStorage.setItem("userid",result.id);
+        localStorage.setItem("name",result.name);
+        this.router.navigate(['home']);
       },(error : HttpResponse<any>) => {
-
+          if(error.status == 401)
+          {
+            this.errorMessage ="Login failed.please try again.";
+          }
+          else{
+            this.errorMessage ="Unabe to Process request";
+          }
       });
 
   }
