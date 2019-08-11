@@ -21,6 +21,9 @@ constructor(
 
   }
 
+  OnLogOut()  {
+    localStorage.removeItem('token');
+  }
   ngDoCheck(){
     this.isAuthorized = this.authService.isAuthenticated();
     if(!this.isAuthorized && this.router.url!='/login') {
