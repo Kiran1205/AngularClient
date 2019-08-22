@@ -1,5 +1,5 @@
 <div class="container"> 
-      <div class="login">  
+      <div class="blackshadow">  
           <h4 style="text-align: center;padding: bottom 10px;">Login</h4>
           <form [formGroup] ="loginForm" autocomplete="off" class="form-horizontal">
             <div class="form-group">
@@ -18,8 +18,8 @@
           </form>                
         </div>
       <div class="newreg"> 
-          <p style="text-align: center;margin-top: -40px">New to Upwork?</p>
-          <button type="submit" style="margin-left: 40%" class="btn btn-outline-success">Register</button>   
+        <h6>New to work?</h6>         
+        <button type="submit" style="margin-left: 40%" class="btn btn-outline-success" (click) = "onRegister()">Register</button>   
       </div>   
   
 </div>

@@ -16,3 +16,24 @@
   border-bottom: solid;
   border-bottom-color: green;
 }
+.blackshadow{
+  margin: auto;
+    width: 40%;
+    padding: 5%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-bottom: 0px !important; 
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+    background-color: white!important;  
+}
+
+  .newreg { 
+    background-color:#F9F9F9 !important;
+    border-top: 1px solid #E0E0E0; 
+    margin: auto;
+    width: 40%;
+    padding-bottom: 2%; 
+    padding-top: 1%; 
+    margin-left: 30%;   
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 15px 10px 0 rgba(0,0,0,0.12)!important;
+  }
