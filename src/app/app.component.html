@@ -18,7 +18,7 @@
   </div>
   </nav>  -->
   
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -40,5 +40,26 @@
       </form>
     </div>
   </div>
-  </nav>
-<router-outlet></router-outlet>
+  </nav> -->
+  <div id = "mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Service</a>
+      <a href="#">Client</a>
+      <a href="#">Contact</a>
+      <a href="#" (click)="OnLogOut()">Logout</a>
+  </div>
+  <div id="main" style="width: 100% !important;">
+    <div class="topnav"> 
+      <span>My Company</span>
+      <a class="active" href="#" [routerLink]="['home']" *ngIf = "isAuthorized"><i class="fa fa-home"></i></a>
+      <a *ngIf = "isAuthorized"><i class="fa fa-address-book"></i></a>
+      <a (click) ="openNav()" *ngIf = "isAuthorized"><i class="fa fa-bars"></i></a>
+    </div>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+        <footer>
+            <div>@2019 Team Work</div>
+        </footer>
+  </div>

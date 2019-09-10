@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 export class AppComponent  implements OnInit,DoCheck{
   title = 'myfirstApp';
   isAuthorized = false;
+  isSlided = false;
 
 constructor(
   private router:Router,
@@ -19,6 +20,23 @@ constructor(
 
   ngOnInit(){
 
+  }
+
+  openNav(){
+
+    if(this.isSlided){
+      this.closeNav();
+    }else{
+      document.getElementById("mySidenav").style.width ="250px";
+      document.getElementById("main").style.paddingLeft ="250px";
+      this.isSlided = true;
+    }
+
+  }
+  closeNav(){
+    document.getElementById("mySidenav").style.width ="0";
+      document.getElementById("main").style.paddingLeft ="0";
+      this.isSlided = false;
   }
 
   OnLogOut()  {
