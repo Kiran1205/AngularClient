@@ -52,9 +52,10 @@
   <div id="main" style="width: 100% !important;">
     <div class="topnav"> 
       <span>My Company</span>
-      <a class="active" href="#" [routerLink]="['home']" *ngIf = "isAuthorized"><i class="fa fa-home"></i></a>
-      <a *ngIf = "isAuthorized"><i class="fa fa-address-book"></i></a>
+      <a  href="#" [routerLink]="['home']" *ngIf = "isAuthorized"  routerLinkActive="active"><i class="fa fa-home" title="Home"></i></a>
+       <a  href="#" [routerLink]="['setting']" *ngIf = "isAuthorized"  routerLinkActive="active"><i class="fa fa-cog" title="Settings"></i></a>
       <a (click) ="openNav()" *ngIf = "isAuthorized"><i class="fa fa-bars"></i></a>
+      <a (click) ="OnLogOut()" *ngIf = "isAuthorized" style=" float: right !important;margin-right: 30px !important"><i class="fa fa-sign-out" title="Logout"></i></a>      
     </div>
         <div class="container">
             <router-outlet></router-outlet>
